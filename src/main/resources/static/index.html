@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HouseKeepTrack</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>HouseKeepTrack</h1>
+        <p>Hotel Housekeeping Management</p>
+    </header>
+
+    <div id="alert-container"></div>
+
+    <main>
+        <section class="summary-cards">
+            <div class="card"><h3>Total Rooms</h3><p id="stat-total-rooms">0</p></div>
+            <div class="card"><h3>Ready Rooms</h3><p id="stat-ready-rooms">0</p></div>
+            <div class="card"><h3>Rooms Cleaning</h3><p id="stat-cleaning-rooms">0</p></div>
+            <div class="card"><h3>Dirty Rooms</h3><p id="stat-dirty-rooms">0</p></div>
+            <div class="card"><h3>Available Housekeepers</h3><p id="stat-avail-hk">0</p></div>
+            <div class="card"><h3>Active Tasks</h3><p id="stat-active-tasks">0</p></div>
+        </section>
+
+        <section id="reporting-section">
+            <h2>Reporting</h2>
+            <p><strong>Average Turnaround Time:</strong> <span id="stat-turnaround">0</span> minutes</p>
+            <div class="table-container">
+                <h3>Housekeeper Workload</h3>
+                <table id="workload-table">
+                    <thead>
+                        <tr><th>Name</th><th>Active Tasks</th><th>Completed Tasks</th><th>Available</th></tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </section>
+
+        <section id="rooms-section">
+            <h2>Rooms</h2>
+            <div class="table-container">
+                <table id="rooms-table">
+                    <thead>
+                        <tr><th>ID</th><th>Room Number</th><th>Room Type</th><th>Status</th><th>Actions</th></tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </section>
+
+        <section id="housekeepers-section">
+            <h2>Housekeepers</h2>
+            <div class="table-container">
+                <table id="hk-table">
+                    <thead>
+                        <tr><th>ID</th><th>Name</th><th>Phone</th><th>Available</th></tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </section>
+
+        <section id="tasks-section">
+            <h2>Cleaning Tasks</h2>
+            <div class="table-container">
+                <table id="tasks-table">
+                    <thead>
+                        <tr><th>ID</th><th>Room ID</th><th>Housekeeper</th><th>Status</th><th>Created</th><th>Started</th><th>Completed</th><th>Actions</th></tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </section>
+
+        <section id="inspections-section">
+            <h2>Inspections</h2>
+            <div class="table-container">
+                <table id="inspections-table">
+                    <thead>
+                        <tr><th>ID</th><th>Room ID</th><th>Supervisor</th><th>Pass/Fail</th><th>Remarks</th><th>Time</th></tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <!-- Inspection Modal -->
+    <div id="inspection-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeInspectionModal()">&times;</span>
+            <h2>Inspect Room <span id="inspect-room-id"></span></h2>
+            <form id="inspection-form">
+                <input type="hidden" id="insp-room-id-input">
+                <label>Supervisor Name:</label>
+                <input type="text" id="insp-supervisor" required>
+                <label>Passed:</label>
+                <select id="insp-passed">
+                    <option value="true">Pass</option>
+                    <option value="false">Fail</option>
+                </select>
+                <label>Remarks:</label>
+                <input type="text" id="insp-remarks" required>
+                <button type="submit">Submit Inspection</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

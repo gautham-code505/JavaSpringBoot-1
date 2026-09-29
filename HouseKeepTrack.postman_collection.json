@@ -1,0 +1,432 @@
+{
+  "info": {
+    "name": "HouseKeepTrack",
+    "description": "Hotel Housekeeping Management API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:8000"
+    }
+  ],
+  "item": [
+    {
+      "name": "ROOM",
+      "item": [
+        {
+          "name": "Get All Rooms",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/api/rooms",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "rooms"]
+            }
+          }
+        },
+        {
+          "name": "Get Room By ID",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/api/rooms/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "rooms", "1"]
+            }
+          }
+        },
+        {
+          "name": "Create Room",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"roomNumber\": \"101\",\n  \"roomType\": \"Deluxe\",\n  \"status\": \"READY\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/rooms",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "rooms"]
+            }
+          }
+        },
+        {
+          "name": "Update Room",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"roomNumber\": \"101\",\n  \"roomType\": \"Suite\",\n  \"status\": \"READY\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/rooms/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "rooms", "1"]
+            }
+          }
+        },
+        {
+          "name": "Delete Room",
+          "request": {
+            "method": "DELETE",
+            "url": {
+              "raw": "{{baseUrl}}/api/rooms/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "rooms", "1"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "HOUSEKEEPER",
+      "item": [
+        {
+          "name": "Get All Housekeepers",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/api/housekeepers",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "housekeepers"]
+            }
+          }
+        },
+        {
+          "name": "Get Housekeeper By ID",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/api/housekeepers/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "housekeepers", "1"]
+            }
+          }
+        },
+        {
+          "name": "Create Housekeeper",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Arun\",\n  \"phone\": \"555-1234\",\n  \"available\": true\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/housekeepers",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "housekeepers"]
+            }
+          }
+        },
+        {
+          "name": "Update Housekeeper",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Arun Updated\",\n  \"phone\": \"555-4321\",\n  \"available\": false\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/housekeepers/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "housekeepers", "1"]
+            }
+          }
+        },
+        {
+          "name": "Delete Housekeeper",
+          "request": {
+            "method": "DELETE",
+            "url": {
+              "raw": "{{baseUrl}}/api/housekeepers/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "housekeepers", "1"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "CLEANING TASK",
+      "item": [
+        {
+          "name": "Get All Tasks",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/api/cleaning-tasks",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "cleaning-tasks"]
+            }
+          }
+        },
+        {
+          "name": "Get Task By ID",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/api/cleaning-tasks/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "cleaning-tasks", "1"]
+            }
+          }
+        },
+        {
+          "name": "Create Task",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"room\": {\"id\": 1},\n  \"housekeeper\": {\"id\": 1},\n  \"status\": \"ASSIGNED\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/cleaning-tasks",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "cleaning-tasks"]
+            }
+          }
+        },
+        {
+          "name": "Update Task",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"status\": \"IN_PROGRESS\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/cleaning-tasks/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "cleaning-tasks", "1"]
+            }
+          }
+        },
+        {
+          "name": "Delete Task",
+          "request": {
+            "method": "DELETE",
+            "url": {
+              "raw": "{{baseUrl}}/api/cleaning-tasks/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "cleaning-tasks", "1"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "INSPECTION",
+      "item": [
+        {
+          "name": "Get All Inspections",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/api/inspections",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "inspections"]
+            }
+          }
+        },
+        {
+          "name": "Get Inspection By ID",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/api/inspections/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "inspections", "1"]
+            }
+          }
+        },
+        {
+          "name": "Create Inspection",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"room\": {\"id\": 1},\n  \"supervisorName\": \"Super\",\n  \"passed\": true,\n  \"remarks\": \"Good\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/inspections",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "inspections"]
+            }
+          }
+        },
+        {
+          "name": "Update Inspection",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"passed\": false,\n  \"remarks\": \"Bad\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/inspections/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "inspections", "1"]
+            }
+          }
+        },
+        {
+          "name": "Delete Inspection",
+          "request": {
+            "method": "DELETE",
+            "url": {
+              "raw": "{{baseUrl}}/api/inspections/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "inspections", "1"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "WORKFLOW",
+      "item": [
+        {
+          "name": "Checkout Room",
+          "request": {
+            "method": "POST",
+            "url": {
+              "raw": "{{baseUrl}}/api/rooms/1/checkout",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "rooms", "1", "checkout"]
+            }
+          }
+        },
+        {
+          "name": "Start Cleaning",
+          "request": {
+            "method": "PUT",
+            "url": {
+              "raw": "{{baseUrl}}/api/cleaning-tasks/1/start",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "cleaning-tasks", "1", "start"]
+            }
+          }
+        },
+        {
+          "name": "Complete Cleaning",
+          "request": {
+            "method": "PUT",
+            "url": {
+              "raw": "{{baseUrl}}/api/cleaning-tasks/1/complete",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "cleaning-tasks", "1", "complete"]
+            }
+          }
+        },
+        {
+          "name": "Inspect Room",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"supervisorName\": \"Admin\",\n  \"passed\": true,\n  \"remarks\": \"Looks good\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/rooms/1/inspection",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "rooms", "1", "inspection"]
+            }
+          }
+        },
+        {
+          "name": "Assign Guest",
+          "request": {
+            "method": "POST",
+            "url": {
+              "raw": "{{baseUrl}}/api/rooms/1/assign",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "rooms", "1", "assign"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "REPORTING",
+      "item": [
+        {
+          "name": "Get Workload",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/api/housekeepers/workload",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "housekeepers", "workload"]
+            }
+          }
+        },
+        {
+          "name": "Get Turnaround Time",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/api/rooms/turnaround-time",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "rooms", "turnaround-time"]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
